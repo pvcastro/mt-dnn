@@ -249,6 +249,8 @@ def main(args):
     assert os.path.exists(root)
 
     literal_model_type = args.model.split('-')[0].upper()
+    if '/' in literal_model_type:
+        literal_model_type = literal_model_type.split('/')[1]
     encoder_model = EncoderModelType[literal_model_type]
     literal_model_type = literal_model_type.lower()
     mt_dnn_suffix = literal_model_type
